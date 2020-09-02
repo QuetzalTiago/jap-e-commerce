@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         user = document.getElementById('inputEmail').value;
         const password = document.getElementById('inputPassword').value;
         localStorage.setItem('user', user);
-        window.location.href = '/';
+        window.location.href = './';
     };
 
     const getJSONData = function (endpoint, userData) {
