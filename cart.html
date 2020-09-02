@@ -4,14 +4,20 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Mi Carrito</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -28,9 +34,6 @@
       }
     }
   </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,7 +54,7 @@
         class="navbar-nav mr-auto mt-2 mt-lg-0 container d-flex flex-column flex-md-row justify-content-between"
       >
         <li class="nav-item">
-          <a href="home.html" class="nav-link py-2">Inicio</a>
+          <a href="index.html" class="nav-link py-2">Inicio</a>
         </li>
         <li class="nav-item">
           <a href="categories.html" class="nav-link py-2">Categorías</a>
@@ -62,9 +65,26 @@
         <li class="nav-item">
           <a href="sell.html" class="nav-link py-2">Vender</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item  active">
           <a href="cart.html" class="nav-link py-2">Mi carrito</a>
         </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+              <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            </svg>
+            <button class="btn dropdown-toggle text-secondary" id="user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Usuario
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id="profile" href="#">Mi perfil</a>
+              <a class="dropdown-item" id="logout" href="#">Cerrar sesión</a>
+            </div>
+          </div>
+        </li>
+        </div>
       </ul>
     </div>
   </nav>
@@ -84,11 +104,16 @@
       <div></div>
     </div>
   </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p class="float-left">
+      </p>
+    </div>
+  </footer>
+
 </body>
 
 </html>

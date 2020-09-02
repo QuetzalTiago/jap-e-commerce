@@ -1,15 +1,34 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    onSignIn();
+document.addEventListener("DOMContentLoaded", function (e) {
+    var user;
+    const backUrl = 'http://localhost:8080';
+
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.onsubmit = (e) => {
+        e.preventDefault()
+        user = document.getElementById('inputEmail').value;
+        const password = document.getElementById('inputPassword').value;
+        localStorage.setItem('user', user);
+        window.location.href = '/';
+    };
+
+    const getJSONData = function (endpoint, userData) {
+        let url = `${backUrl}${endpoint}`;
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(userData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => {
+                alert('Usuario y/o contraseña incorrecta')
+            })
+            .then(response => {
+                console.log('Success:', response)
+                localStorage.setItem('token', response.token);
+                localStorage.setItem('user', user);
+                window.location.href = '/';
+            });
+    }
 });
-
-
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  }     

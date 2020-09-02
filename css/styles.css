@@ -172,3 +172,17 @@ nav {
   text-align: center;
 }
 
+form{
+	background: #fff;
+}
+
+.form-container{
+	border-radius: 10px;
+	padding: 30px;
+}
+
+.price {
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  position: relative;
+}
