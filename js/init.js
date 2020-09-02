@@ -52,6 +52,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
   };
 
   if (!user) {
-    window.location.href = '/login.html'; 
+    window.location.href = './login.html'; 
   }
 });
