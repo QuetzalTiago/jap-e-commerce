@@ -44,7 +44,7 @@ function showProductList(array) {
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
             htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -56,10 +56,10 @@ function showProductList(array) {
                     </div>
                     
                     <p class="mb-1">` + product.description + `</p>
-                    <h4 class="price">U$S ` + product.cost + `</h4>
+                    <h4 class="price">USD ` + product.cost + `</h4>
                 </div>
             </div>
-        </div>
+        </a>
         `
             document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
         }
@@ -120,14 +120,12 @@ function makeSearch() {
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
-        showSpinner();
         if (resultObj.status === "ok") {
             productsArray = resultObj.data;
             sortAndShowProducts(ORDER_BY_PROD_COUNT, resultObj.data);
             resultsFound = true;
             //Muestro las categorías ordenadas
             showProductList(productsArray);
-            hideSpinner();
         }
 
         document.getElementById("sortAsc").addEventListener("click", function () {
@@ -187,8 +185,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         document.getElementById("search-bar").addEventListener("input", function () {
             makeSearch();
-        })
-
-        $('[data-toggle="tooltip"]').tooltip()
+        });
+        $('[data-toggle="tooltip"]').tooltip();
     });
 });

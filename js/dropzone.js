@@ -377,7 +377,7 @@ var Dropzone = function (_Emitter) {
          * selector. The element should have the `dropzone-previews` class so
          * the previews are displayed properly.
          */
-        previewsContainer: null,
+        previewscontainer: null,
 
         /**
          * This is the element the hidden input field (which is used when clicking on the
@@ -386,7 +386,7 @@ var Dropzone = function (_Emitter) {
          *
          * Can be a selector string, or an element directly.
          */
-        hiddenInputContainer: "body",
+        hiddenInputcontainer: "body",
 
         /**
          * If null, no capture type will be specified
@@ -740,15 +740,15 @@ var Dropzone = function (_Emitter) {
         addedfile: function addedfile(file) {
           var _this2 = this;
 
-          if (this.element === this.previewsContainer) {
+          if (this.element === this.previewscontainer) {
             this.element.classList.add("dz-started");
           }
 
-          if (this.previewsContainer) {
+          if (this.previewscontainer) {
             file.previewElement = Dropzone.createElement(this.options.previewTemplate.trim());
             file.previewTemplate = file.previewElement; // Backwards compatibility
 
-            this.previewsContainer.appendChild(file.previewElement);
+            this.previewscontainer.appendChild(file.previewElement);
             for (var _iterator3 = file.previewElement.querySelectorAll("[data-dz-name]"), _isArray3 = true, _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator]();;) {
               var _ref3;
 
@@ -1094,12 +1094,12 @@ var Dropzone = function (_Emitter) {
       fallback.parentNode.removeChild(fallback);
     }
 
-    // Display previews in the previewsContainer element or the Dropzone element unless explicitly set to false
-    if (_this.options.previewsContainer !== false) {
-      if (_this.options.previewsContainer) {
-        _this.previewsContainer = Dropzone.getElement(_this.options.previewsContainer, "previewsContainer");
+    // Display previews in the previewscontainer element or the Dropzone element unless explicitly set to false
+    if (_this.options.previewscontainer !== false) {
+      if (_this.options.previewscontainer) {
+        _this.previewscontainer = Dropzone.getElement(_this.options.previewscontainer, "previewscontainer");
       } else {
-        _this.previewsContainer = _this.element;
+        _this.previewscontainer = _this.element;
       }
     }
 
@@ -1224,7 +1224,7 @@ var Dropzone = function (_Emitter) {
           _this3.hiddenFileInput.style.left = "0";
           _this3.hiddenFileInput.style.height = "0";
           _this3.hiddenFileInput.style.width = "0";
-          Dropzone.getElement(_this3.options.hiddenInputContainer, 'hiddenInputContainer').appendChild(_this3.hiddenFileInput);
+          Dropzone.getElement(_this3.options.hiddenInputcontainer, 'hiddenInputcontainer').appendChild(_this3.hiddenFileInput);
           return _this3.hiddenFileInput.addEventListener("change", function () {
             var files = _this3.hiddenFileInput.files;
 
