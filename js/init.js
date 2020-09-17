@@ -1,14 +1,14 @@
-const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
-const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
-const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
-const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
-const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
-const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
-const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const CATEGORIES_URL = 'https://japdevdep.github.io/ecommerce-api/category/all.json';
+const PUBLISH_PRODUCT_URL = 'https://japdevdep.github.io/ecommerce-api/product/publish.json';
+const CATEGORY_INFO_URL = 'https://japdevdep.github.io/ecommerce-api/category/1234.json';
+const PRODUCTS_URL = 'https://japdevdep.github.io/ecommerce-api/product/all.json';
+const PRODUCT_INFO_URL = 'https://japdevdep.github.io/ecommerce-api/product/5678.json';
+const PRODUCT_INFO_COMMENTS_URL = 'https://japdevdep.github.io/ecommerce-api/product/5678-comments.json';
+const CART_INFO_URL = 'https://japdevdep.github.io/ecommerce-api/cart/987.json';
+const CART_BUY_URL = 'https://japdevdep.github.io/ecommerce-api/cart/buy.json';
 
-var showSpinner = function () { document.getElementById("spinner-wrapper").style.display = "block"; }
-var hideSpinner = function () { document.getElementById("spinner-wrapper").style.display = "none"; }
+var showSpinner = function () { document.getElementById('spinner-wrapper').style.display = 'block'; }
+var hideSpinner = function () { document.getElementById('spinner-wrapper').style.display = 'none'; }
 
 var getJSONData = function (url) {
   var result = {};
@@ -35,24 +35,21 @@ var getJSONData = function (url) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener('DOMContentLoaded', function (e) {
   const logoutButton = document.getElementById('logout');
   const profileButton = document.getElementById('profile');
-  let token = localStorage.getItem('token');
+  // let token = localStorage.getItem('token');
   let user = localStorage.getItem('user');
-  $("#user").text(localStorage.getItem("user"));
-
-  profileButton.onclick = () => {
-    window.location.href = './my-profile.html';
-  }
+  $('#user').text(user);
 
   logoutButton.onclick = () => {
-    localStorage.removeItem('token');
+    //localStorage.removeItem('token');
     localStorage.removeItem('user');
     window.location.href = './login.html';
   };
 
   if (!user) {
     window.location.href = './login.html'; 
+    console.log("redirecting");
   }
 });

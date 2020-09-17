@@ -40,9 +40,7 @@
         <li class="nav-item">
           <a href="sell.html" class="nav-link py-2">Vender</a>
         </li>
-        <li class="nav-item">
-          <a href="cart.html" class="nav-link py-2">Mi carrito</a>
-        </li>
+        
         <li class="nav-item">
           <div class="dropdown">
             <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor"
@@ -56,10 +54,11 @@
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Usuario
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" id="profile" href="#">Mi perfil</a>
-              <a class="dropdown-item" id="logout" href="#">Cerrar sesión</a>
-            </div>
+            <div class="dropdown-menu bg-dark text-secondary" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="profile" href="./my-profile.html">Mi perfil</a>
+                <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="cart" href="cart.html">Ver mi carrito</a>
+                <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="logout" href="#">Cerrar sesión</a>
+              </div>
           </div>
         </li>
     </div>
@@ -76,8 +75,8 @@
         <div class="form-group" id="comment-form">
           <label for="textarea">Escribe un comentario</label>
           <br>
-          <textarea class="form-control" id="textarea" rows="5"></textarea>
-          <button type="button" class="btn btn-primary btn-lg" id="send-comment">Enviar</button>
+          <textarea class="form-control" id="textarea" maxlength="90" rows="5"></textarea>
+          <button type="button" class="btn btn-primary btn-lg" id="send-comment">Calificar</button>
           <span class="pl-2 fa fa-star" id="star1"></span>
           <span class="fa fa-star" id="star2"></span>
           <span class="fa fa-star" id="star3"></span>

@@ -3,6 +3,7 @@ function showProduct() {
   let htmlContentToAppend = 
   `
   <!-- Category info -->
+
   <div class="row" id="category-info">
     <a class="text-left font-weight-bold pl-3 pb-1" id="category" href="./products.html">Categorias > ` + product.category + `</a>
   </div> 
@@ -43,30 +44,98 @@ function showProduct() {
       <button type="button" class="btn btn-primary btn-lg btn-block">Añadir al carrito</button>
     </div>
   </div>
+  
   <!-- Recommended products -->
-  <h4 class="text-center pt-4"> Productos recomendados</h4> 
-  <div class="row pt-4 text-center">
-    <div class="card col-sm" style="width: 18rem;">
-      <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h5>
-        <a href="./product-info.html" class="btn btn-primary stretched-link">Ver producto</a>
+  <h4 class="text-center pt-4">También te puede interesar</h4> 
+
+  <!-- Product 0 -->
+    <div class="row pt-4 text-center">
+        <div class="card col-sm" style="width: 18rem;">
+        <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h5>
+
+  <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Más información
+      </button>
+
+  <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="text-left p-4 col">
+                <p class="text-muted small" id="sold">Nuevo - `+ productsArray[product.relatedProducts[0]].soldCount +` vendidos</p>
+                <h2 class ="font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h2> 
+                <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
+                <h4 class="price">USD `+ productsArray[product.relatedProducts[0]].cost +`</h4>
+                <p class="font-weight-normal">`+ productsArray[product.relatedProducts[0]].description +`</p>
+                <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
+
+    <!-- Product 1 -->
+
     <div class="card col-sm" style="width: 18rem;">
       <img src="`+ productsArray[product.relatedProducts[1]].imgSrc +`" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[1]].name +`</h5>
-        <a href="./product-info.html" class="btn btn-primary stretched-link">Ver producto</a>
+        
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+        Más información
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="text-left p-4 col">
+                <p class="text-muted small" id="sold">Nuevo - `+ productsArray[product.relatedProducts[1]].soldCount +` vendidos</p>
+                <h2 class ="font-weight-bold">`+ productsArray[product.relatedProducts[1]].name +`</h2> 
+                <img src="`+ productsArray[product.relatedProducts[1]].imgSrc +`" class="card-img-top" alt="...">
+                <h4 class="price">USD `+ productsArray[product.relatedProducts[1]].cost +`</h4>
+                <p class="font-weight-normal">`+ productsArray[product.relatedProducts[1]].description +`</p>
+                <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
-    <div class="card col-sm" style="width: 18rem;">
+
+  <!-- Product 0 (again for esthetic porpuses) -->
+
+      <div class="card col-sm" style="width: 18rem;">
       <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h5>
-      <a href="./product-info.html" class="btn btn-primary stretched-link">Ver producto</a>
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h5>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Más información
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="text-left p-4 col">
+                <p class="text-muted small" id="sold">Nuevo - `+ productsArray[product.relatedProducts[0]].soldCount +` vendidos</p>
+                <h2 class ="font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h2> 
+                <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
+                <h4 class="price">USD `+ productsArray[product.relatedProducts[0]].cost +`</h4>
+                <p class="font-weight-normal">`+ productsArray[product.relatedProducts[0]].description +`</p>
+                <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
-  </div>
   `
   document.getElementById("product-container").innerHTML = htmlContentToAppend;
 }
@@ -282,6 +351,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
   document.getElementById("send-comment").addEventListener("click", function(){
     let text = document.getElementById("textarea").value;
     sendComment(score, text);
+    if (score > 0){
+      uncheckStars();
+      document.getElementById("textarea").value="";
+      score = 0;
+    }
   })
+
 
 });
