@@ -1,12 +1,12 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
-var currentCategoriesArray = [];
-var currentSortCriteria = undefined;
-var minCount = undefined;
-var maxCount = undefined;
+let currentCategoriesArray = [];
+let currentSortCriteria = undefined;
+let minCount = undefined;
+let maxCount = undefined;
 
-function sortCategories(criteria, array) {
+const sortCategories = (criteria, array) => {
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME) {
         result = array.sort(function (a, b) {
@@ -34,8 +34,7 @@ function sortCategories(criteria, array) {
     return result;
 }
 
-function showCategoriesList(array) {
-
+const showCategoriesList = (array) => {
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
         let category = array[i];
@@ -61,11 +60,11 @@ function showCategoriesList(array) {
             `
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        $("#cat-list-container").html(htmlContentToAppend);
     }
 }
 
-function sortAndShowCategories(sortCriteria, categoriesArray) {
+const sortAndShowCategories = (sortCriteria, categoriesArray) => {
     currentSortCriteria = sortCriteria;
 
     if (categoriesArray != undefined) {
@@ -78,10 +77,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
     showCategoriesList(currentCategoriesArray);
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
+$( document ).ready(() => {
     getJSONData(CATEGORIES_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
@@ -89,33 +85,37 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
-    document.getElementById("sortAsc").addEventListener("click", function () {
+    $("#sortAsc").click(() => {
         sortAndShowCategories(ORDER_ASC_BY_NAME);
     });
 
-    document.getElementById("sortDesc").addEventListener("click", function () {
+    $("#sortDesc").click(() => {
         sortAndShowCategories(ORDER_DESC_BY_NAME);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function () {
+    $("#sortByCount").click(() => {
         sortAndShowCategories(ORDER_BY_PROD_COUNT);
     });
 
-    document.getElementById("clearRangeFilter").addEventListener("click", function () {
-        document.getElementById("rangeFilterCountMin").value = "";
-        document.getElementById("rangeFilterCountMax").value = "";
+    $("#clearRangeFilter").click( () => {
+        $("#rangeFilterCountMin").val("");
+        $("#rangeFilterCountMax").val("");
+        $("#sortAsc").addClass("active");
+        $("#sortDesc").removeClass("active");
+        $("#sortByCount").removeClass("active");
 
+        sortAndShowCategories(ORDER_ASC_BY_NAME);
         minCount = undefined;
         maxCount = undefined;
 
         showCategoriesList(currentCategoriesArray);
     });
 
-    document.getElementById("rangeFilterCount").addEventListener("click", function () {
+    $("#rangeFilterCount").click( () => {
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de productos por categoría.
-        minCount = document.getElementById("rangeFilterCountMin").value;
-        maxCount = document.getElementById("rangeFilterCountMax").value;
+        minCount = $("#rangeFilterCountMin").val();
+        maxCount = $("rangeFilterCountMax").val();
 
         if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
             minCount = parseInt(minCount);

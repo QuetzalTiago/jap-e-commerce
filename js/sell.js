@@ -1,17 +1,16 @@
 let productCost = 0;
 let productCount = 0;
 let comissionPercentage = 0.13;
-let MONEY_SYMBOL = "$";
-let DOLLAR_CURRENCY = "Dólares (USD)";
-let PESO_CURRENCY = "Pesos Uruguayos (UYU)";
-let DOLLAR_SYMBOL = "USD ";
-let PESO_SYMBOL = "UYU ";
-let PERCENTAGE_SYMBOL = '%';
-let SUCCESS_MSG = "¡Se ha realizado la publicación con éxito! :)";
-let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
+const MONEY_SYMBOL = "$";
+const DOLLAR_CURRENCY = "Dólares (USD)";
+const PESO_CURRENCY = "Pesos Uruguayos (UYU)";
+const DOLLAR_SYMBOL = "USD ";
+const PESO_SYMBOL = "UYU ";
+const PERCENTAGE_SYMBOL = '%';
+const SUCCESS_MSG = "¡Se ha realizado la publicación con éxito! :)";
+const ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
-//Función que se utiliza para actualizar los costos de publicación
-function updateTotalCosts(){
+const updateTotalCosts = () => {
     let unitProductCostHTML = document.getElementById("productCostText");
     let comissionCostHTML = document.getElementById("comissionText");
     let totalCostHTML = document.getElementById("totalCostText");
@@ -25,11 +24,8 @@ function updateTotalCosts(){
     totalCostHTML.innerHTML = totalCostToShow;
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("productCountInput").addEventListener("change", function(){
+$( document ).ready(() => {
+    $("productCountInput").change(() => {
         productCount = this.value;
         updateTotalCosts();
     });

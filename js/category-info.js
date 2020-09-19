@@ -1,6 +1,6 @@
-var category = {};
+let category = {};
 
-function showImagesGallery(array){
+const showImagesGallery = (array) => {
 
     let htmlContentToAppend = "";
 
@@ -15,28 +15,25 @@ function showImagesGallery(array){
         </div>
         `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        $("#productImagesGallery").html(htmlContentToAppend);
     }
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+$( document ).ready(() => {
     getJSONData(CATEGORY_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
             category = resultObj.data;
 
-            let categoryNameHTML  = document.getElementById("categoryName");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
+            let categoryNameHTML  = $("#categoryName");
+            let categoryDescriptionHTML = $("#categoryDescription");
+            let productCountHTML = $("#productCount");
+            let productCriteriaHTML = $("#productCriteria");
         
-            categoryNameHTML.innerHTML = category.name;
-            categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.productCount;
-            productCriteriaHTML.innerHTML = category.productCriteria;
+            categoryNameHTML.html(category.name);
+            categoryDescriptionHTML.html(category.description);
+            productCountHTML.html(category.productCount);
+            productCriteriaHTML.html(category.productCriteria);
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(category.images);

@@ -7,10 +7,10 @@ const PRODUCT_INFO_COMMENTS_URL = 'https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = 'https://japdevdep.github.io/ecommerce-api/cart/987.json';
 const CART_BUY_URL = 'https://japdevdep.github.io/ecommerce-api/cart/buy.json';
 
-var showSpinner = function () { document.getElementById('spinner-wrapper').style.display = 'block'; }
-var hideSpinner = function () { document.getElementById('spinner-wrapper').style.display = 'none'; }
+var showSpinner = () => { document.getElementById('spinner-wrapper').style.display = 'block'; }
+var hideSpinner = () => { document.getElementById('spinner-wrapper').style.display = 'none'; }
 
-var getJSONData = function (url) {
+const getJSONData = (url) => {
   var result = {};
   showSpinner();
   return fetch(url)
@@ -21,13 +21,13 @@ var getJSONData = function (url) {
         throw Error(response.statusText);
       }
     })
-    .then(function (response) {
+    .then((response) => {
       result.status = 'ok';
       result.data = response;
       hideSpinner();
       return result;
     })
-    .catch(function (error) {
+    .catch((error) => {
       result.status = 'error';
       result.data = error;
       hideSpinner();
@@ -35,9 +35,8 @@ var getJSONData = function (url) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function (e) {
+$( document ).ready(() => {
   const logoutButton = document.getElementById('logout');
-  const profileButton = document.getElementById('profile');
   // let token = localStorage.getItem('token');
   let user = localStorage.getItem('user');
   $('#user').text(user);
@@ -50,6 +49,5 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
   if (!user) {
     window.location.href = './login.html'; 
-    console.log("redirecting");
   }
 });

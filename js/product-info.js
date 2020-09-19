@@ -1,4 +1,4 @@
-function showProduct() {
+const showProduct =  () => {
   let product = productArray;
   let htmlContentToAppend = 
   `
@@ -47,100 +47,31 @@ function showProduct() {
   
   <!-- Recommended products -->
   <h4 class="text-center pt-4">También te puede interesar</h4> 
-
-  <!-- Product 0 -->
-    <div class="row pt-4 text-center">
-        <div class="card col-sm" style="width: 18rem;">
-        <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h5>
-
-  <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Más información
-      </button>
-
-  <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="text-left p-4 col">
-                <p class="text-muted small" id="sold">Nuevo - `+ productsArray[product.relatedProducts[0]].soldCount +` vendidos</p>
-                <h2 class ="font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h2> 
-                <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
-                <h4 class="price">USD `+ productsArray[product.relatedProducts[0]].cost +`</h4>
-                <p class="font-weight-normal">`+ productsArray[product.relatedProducts[0]].description +`</p>
-                <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-
-    <!-- Product 1 -->
-
-    <div class="card col-sm" style="width: 18rem;">
-      <img src="`+ productsArray[product.relatedProducts[1]].imgSrc +`" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[1]].name +`</h5>
-        
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-        Más información
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="text-left p-4 col">
-                <p class="text-muted small" id="sold">Nuevo - `+ productsArray[product.relatedProducts[1]].soldCount +` vendidos</p>
-                <h2 class ="font-weight-bold">`+ productsArray[product.relatedProducts[1]].name +`</h2> 
-                <img src="`+ productsArray[product.relatedProducts[1]].imgSrc +`" class="card-img-top" alt="...">
-                <h4 class="price">USD `+ productsArray[product.relatedProducts[1]].cost +`</h4>
-                <p class="font-weight-normal">`+ productsArray[product.relatedProducts[1]].description +`</p>
-                <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-
-  <!-- Product 0 (again for esthetic porpuses) -->
-
-      <div class="card col-sm" style="width: 18rem;">
-      <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h5>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Más información
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <div class="text-left p-4 col">
-                <p class="text-muted small" id="sold">Nuevo - `+ productsArray[product.relatedProducts[0]].soldCount +` vendidos</p>
-                <h2 class ="font-weight-bold">`+ productsArray[product.relatedProducts[0]].name +`</h2> 
-                <img src="`+ productsArray[product.relatedProducts[0]].imgSrc +`" class="card-img-top" alt="...">
-                <h4 class="price">USD `+ productsArray[product.relatedProducts[0]].cost +`</h4>
-                <p class="font-weight-normal">`+ productsArray[product.relatedProducts[0]].description +`</p>
-                <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
   `
+  const RELATED_PRODUCTS = product.relatedProducts.length;
+  for (let i = 0; i <  RELATED_PRODUCTS; i++){
+  htmlContentToAppend+=
+  `
+  <div class="col">
+  <!-- Product 0 -->
+    <div class="row text-center">
+        <div class="card col-sm" style="width: 18rem;">
+        <div class="card-body">
+          <div class="text-left p-4 col">
+              <h2 class ="font-weight-bold text-center">`+ productsArray[product.relatedProducts[i]].name +`</h2> 
+              <img src="`+ productsArray[product.relatedProducts[i]].imgSrc +`" class="card-img-top" alt="...">
+              <h4 class="price">USD `+ productsArray[product.relatedProducts[i]].cost +`</h4>
+              <p class="font-weight-normal">`+ productsArray[product.relatedProducts[i]].description +`</p>
+              <a href="product-info.html" class="btn btn-primary btn-lg btn-block ">Ver producto</a>
+            </div>
+    </div>
+  </div>
+  `
+  }
   document.getElementById("product-container").innerHTML = htmlContentToAppend;
 }
 
-function showComments(array){
+const showComments = (array) => {
   let comments = array;
   let htmlContentToAppend = 
   `
@@ -166,7 +97,7 @@ function showComments(array){
   
 }
 
-function getCurrentTime(){
+const getCurrentTime = () => {
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -174,7 +105,7 @@ function getCurrentTime(){
   return dateTime;
 }
 
-function sendComment(score, desc){
+const sendComment = (score, desc) => {
   var data = commentsArray
   var user = localStorage.getItem("user");
   user = user.substring(0, user.indexOf('@'));
@@ -208,8 +139,7 @@ function sendComment(score, desc){
   }
 }
 
-
-document.addEventListener("DOMContentLoaded", function (e) {
+$( document ).ready(() => {
   //Get all products data
   getJSONData(PRODUCTS_URL).then(function (resultObj) {
     if (resultObj.status === "ok") {

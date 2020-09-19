@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function (e) {
+$( document ).ready(() => {
     var user;
     const backUrl = 'http://localhost:8080';
 
