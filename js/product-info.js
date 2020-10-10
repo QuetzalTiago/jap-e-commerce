@@ -1,4 +1,4 @@
-const showProduct =  () => {
+const showProduct = () => {
   let product = productArray;
   let htmlContentToAppend = 
   `
@@ -93,21 +93,21 @@ const showComments = (array) => {
       <hr>
     `
   }
-  document.getElementById("comments-container").innerHTML = htmlContentToAppend;
+  $("#comments-container").html(htmlContentToAppend);
   
 }
 
 const getCurrentTime = () => {
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date+' '+time;
+  let today = new Date();
+  let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let dateTime = date+' '+time;
   return dateTime;
 }
 
 const sendComment = (score, desc) => {
-  var data = commentsArray
-  var user = localStorage.getItem("user");
+  let data = commentsArray;
+  let user = localStorage.getItem("user");
   user = user.substring(0, user.indexOf('@'));
   if (score > 0){
     data.push({
@@ -123,7 +123,7 @@ const sendComment = (score, desc) => {
       Comentario publicado
     </div>
     `
-    setTimeout(function (){
+    setTimeout(() => {
       document.getElementById("alert").innerHTML=` `
     }, 4500); 
   }else {
@@ -133,7 +133,7 @@ const sendComment = (score, desc) => {
       Debes elegir un puntaje antes de comentar!
     </div>
     `
-    setTimeout(function (){
+    setTimeout(() => {
       document.getElementById("alert").innerHTML=` `
     }, 4500); 
   }
@@ -166,7 +166,7 @@ $( document ).ready(() => {
   // Comment & rating logic
   let score = 0;
 
-  function checkStars(){
+  const checkStars = () => {
     if (score == 1){
       $("#star1").addClass("checked");
     }
@@ -194,7 +194,7 @@ $( document ).ready(() => {
     }
   }
 
-  function uncheckStars(){
+  const uncheckStars = () => {
     $("#star1").removeClass("checked");
     $("#star2").removeClass("checked");
     $("#star3").removeClass("checked");

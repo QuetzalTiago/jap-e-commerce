@@ -185,3 +185,14 @@ form{
   font-family: 'Lato', sans-serif;
   position: relative;
 }
+
+.small-icon {
+  width: 50px;
+  height: auto;
+}
+
+.small-input {
+  max-width: 40px;
+}
+
+

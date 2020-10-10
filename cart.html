@@ -86,14 +86,75 @@
       </ul>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main" class="pb-5">
+    <div class="container text-center p-4" id="cart-products">
+      <h2>Carrito</h2>
+      <p class="lead">Verás aquí los productos que agregaste</p>
+      <div class="row p-3 mb-2 bg-light">
+        <div class="col-xl">
+          Producto
+        </div>
+        <div class="col">
+            <div class="row">
+              <div class="col-sm">
+                Precio
+              </div>
+              <div class="col-sm">
+                Cantidad
+              </div>
+              <div class="col-sm">
+                Total
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container p-4">
+      
+      <div class="container row p-3 mb-2 text-center">
+        <h5>Tipo de envío:</h5>
+        <div class="col">
+          <input type="radio" name="shipping" id="shipping-standart" class="p-3 mb-2 product" checked="checked"> Estándar
+          <p class="text-muted small">30 días (5%)</p>
+        </div>
+        <div class="col">
+          <input type="radio" name="shipping" id="shipping-express" class="p-3 mb-2 product"> Express
+          <p class="text-muted small">15 días (10%)</p>
+        </div>
+        <div class="col">
+          <input type="radio" name="shipping" id="shipping-premium" class="p-3 mb-2 product"> Premium
+          <p class="text-muted small">7 días (15%)</p>
+        </div>
+      </div>
+      <h4 class="p-3 mb-2 text-center">Total del carrito</h4>
+      <div class="row p-3 mb-2 ">
+        <div class="col-md-3">
+          <p>Subtotal</p>
+        </div>
+        <div class="col-md-3">
+          <p class="price" id="subtotal">$0</p>
+        </div>
+      </div>
+      <div class="row p-3 mb-2">
+        <div class="col-md-3">
+          <p>Envío</p>
+        </div>
+        <div class="col-md-3">
+          <p class="price" id="shipping">$0</p>
+        </div>
+      </div>
+      <div class="row p-3 mb-2">
+        <div class="col-md-3">
+          <p>Total</p>
+        </div>
+        <div class="col-md-3">
+          <p class="price font-weight-bold" id="total">$0</p>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary btn-lg">Continuar con la compra</button>
+    </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
