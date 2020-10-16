@@ -51,7 +51,7 @@ const showCart = (array) => {
                 <p>`+array.articles[i].currency+` `+array.articles[i].unitCost+` </p>
               </div>
               <div class="col-sm price">
-                <input type="number" id="amount`+i+`" class="small-input product" value="1" min="1">
+                <input type="number" id="amount`+i+`" class="small-input product" value="`+array.articles[i].count+`" min="1">
               </div>
               <div class="col-sm price">
               <p id="total`+i+`" class="font-weight-bold">`+array.articles[i].currency+` `+array.articles[i].unitCost+` </p>
@@ -70,13 +70,27 @@ $( document ).ready( () => {
           cart = resultObj.data;
         }
         showCart(cart);
+        //Check count
+        for (let i = 0; i < cart.articles.length; i++){
+          $("#total"+i).text(cart.articles[i].currency+" "+(cart.articles[i].count)*(cart.articles[i].unitCost));
+        }
+        //Update subtotal
         $('.product').change( () => {
           for (let i = 0; i < cart.articles.length; i++){
               $("#total"+i).text(cart.articles[i].currency+" "+($("#amount"+i).val())*(cart.articles[i].unitCost));
           }
           updateCartTotal(cart);
-        });1
+        });
         updateCartTotal(cart);
     });
+
+    //Payment modal logic
+    new Card({
+        form: document.querySelector('#form'),
+        container:'.card-wrapper'
+      });
+      
+      
+
 });
 

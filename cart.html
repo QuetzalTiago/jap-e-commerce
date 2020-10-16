@@ -13,11 +13,14 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="node_modules\card\dist\card.css" rel="stylesheet">
+  <script src="node_modules\card\dist\card.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -113,21 +116,24 @@
       
       <div class="container row p-3 mb-2 text-center">
         <h5>Tipo de envío:</h5>
-        <div class="col">
-          <input type="radio" name="shipping" id="shipping-standart" class="p-3 mb-2 product" checked="checked"> Estándar
+        <div class="col" id="standart">
+            <input type="radio" name="shipping" id="shipping-standart" class="p-3 mb-2 product" checked="checked"> 
+            Estándar
           <p class="text-muted small">30 días (5%)</p>
         </div>
-        <div class="col">
-          <input type="radio" name="shipping" id="shipping-express" class="p-3 mb-2 product"> Express
+        <div class="col" id="express">
+            <input type="radio" name="shipping" id="shipping-express" class="p-3 mb-2 product">
+            Express
           <p class="text-muted small">15 días (10%)</p>
         </div>
-        <div class="col">
-          <input type="radio" name="shipping" id="shipping-premium" class="p-3 mb-2 product"> Premium
+        <div class="col" id="premium">
+            <input type="radio" name="shipping" id="shipping-premium" class="p-3 mb-2 product">
+            Premium
           <p class="text-muted small">7 días (15%)</p>
         </div>
       </div>
       <h4 class="p-3 mb-2 text-center">Total del carrito</h4>
-      <div class="row p-3 mb-2 ">
+      <div class="row p-3 mb-2">
         <div class="col-md-3">
           <p>Subtotal</p>
         </div>
@@ -152,8 +158,74 @@
         </div>
       </div>
     </div>
-    <div class="text-center">
-      <button type="button" class="btn btn-primary btn-lg">Continuar con la compra</button>
+  <div class="text-center container">
+    <h4 class="p-3 mb-2">Forma de pago</h4>
+    <div class="row">
+      <div class="col">
+        <!-- Tarjeta -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardModal">
+          Tarjeta de crédito
+        </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cardModalLabel">Completa el formulario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="list-group">
+                  <div class="card-wrapper"></div>
+                  <div class="form-container active">
+                    <form id="form" action="">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="number" placeholder="Número">
+                        <input type="text" class="form-control" name="first-name" placeholder="Nombre"/>
+                        <input type="text" class="form-control" name="last-name" placeholder="Apellido"/>
+                        <input type="text" class="form-control" name="expiry" placeholder="Vencimiento"/>
+                        <input type="text" class="form-control" name="cvc" placeholder="CVC"/>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="next-slide" class="btn btn-primary">Pagar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col">
+        <!-- Banco -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bankModal">
+          Cuenta bancaria
+        </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="bankModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cardModalLabel">Datos bancarios</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>*datos bancarios aquí*</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
