@@ -14,7 +14,7 @@
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53c0fb;
-  background: url("../img/cover_back.png");
+  background: url("../img/cover_back_dark.png");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -191,8 +191,15 @@ form{
   height: auto;
 }
 
+.small-img {
+  width: 500px;
+  height: auto;
+}
+
 .small-input {
   max-width: 40px;
 }
 
-
+.clickable {
+  cursor: pointer;
+}

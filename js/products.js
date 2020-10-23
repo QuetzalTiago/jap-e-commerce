@@ -189,7 +189,7 @@ $( document ).ready(() => {
         }
     });
 
-    $("#search-bar").on('input', (e) =>{
+    $("#search-bar").on('input', () =>{
         makeSearch();
     });
 
