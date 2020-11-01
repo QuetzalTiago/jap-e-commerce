@@ -44,6 +44,7 @@ $( document ).ready(() => {
   logoutButton.onclick = () => {
     //localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('userData');
     window.location.href = './login.html';
   };
 
