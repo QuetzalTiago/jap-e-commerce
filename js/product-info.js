@@ -8,18 +8,18 @@ const showProduct = () => {
     <a class="text-left font-weight-bold pl-3 pb-1" id="category" href="./products.html">Categorias > ` + product.category + `</a>
   </div> 
   <div class="row" id="product-info">
-    <div class="col">
+    <div class="col-md-6">
     <!-- Carousel -->
       <div id="carousel" class="carousel slide" data-ride="carousel"> 
         <div class="carousel-inner">
         <div class="carousel-item active" >
-          <img class="d-block w-100" src="` + product.images[0] + `" alt="slide number 1"">
+          <img class="d-block w-100 img-fluid" src="` + product.images[0] + `" alt="slide number 1"">
         </div>
         `
         for (let i = 1; i < product.images.length; i++){
           htmlContentToAppend+=`
           <div class="carousel-item" >
-            <img class="d-block w-100" src="` + product.images[i] + `" alt="slide number `+ (i+1) +`"">
+            <img class="d-block w-100 img-fluid" src="` + product.images[i] + `" alt="slide number `+ (i+1) +`"">
           </div>
         `
         }

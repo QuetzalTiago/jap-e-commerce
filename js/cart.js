@@ -59,11 +59,11 @@ const showCart = (array) => { // Generates HTML code for each product and append
       `   
       <div id="product`+i+`">
         <div class="row p-3 mb-2">
-          <div class="col-xl text-left">
+          <div class="col-md-5 text-left">
             <img src="`+array.articles[i].src+`" class="small-icon" alt="">
             <a href="./product-info.html" class="pl-2">`+array.articles[i].name+`</a>
           </div>
-          <div class="col">
+          <div class="col-md">
             <div class="row">
               <div class="col-sm price">
                 <p class="cost">`+array.articles[i].currency+` `+array.articles[i].unitCost+` </p>
@@ -74,7 +74,9 @@ const showCart = (array) => { // Generates HTML code for each product and append
               <div class="col-sm price">
               <p class="font-weight-bold total">`+array.articles[i].currency+` `+array.articles[i].unitCost+` </p>
               </div>
+              <div class="col-sm price">
               <i class="fas fa-times clickable remove" id="remove`+i+`" title="Quitar del carrito"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -89,7 +91,7 @@ const cartEmpty = () => {
   htmlContentToAppend+=
   `
   <div class="text-center pt-5">
-    <h2>Parece que tu carrito está vacio!</h2>
+    <h2>Tu carrito está vacio!</h2>
     <img src="img/cart-empty.png" class="small-img" alt="">
     <br>
     <a href="./products.html">Ver productos</a>

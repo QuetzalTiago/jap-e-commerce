@@ -14,7 +14,7 @@
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53c0fb;
-  background: url("../img/cover_back_dark.png");
+  background: url("../img/cover_back.png");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -202,4 +202,13 @@ form{
 
 .clickable {
   cursor: pointer;
+}
+
+.profile-img {
+  width: 300px;
+  height: auto;
+}
+
+.hidden {
+  display: none;
 }
