@@ -52,7 +52,7 @@ const darkMode = () => {
   $('.container').addClass('bg-dark');
   $('.btn').addClass('btn-dark');
   
-  $('.jumbotron').css('background', 'url("../img/cover_back_dark.png")');
+  $('.jumbotron').css('background', 'url("./img/cover_back_dark.png")');
   $('.jumbotron').css('background-size', '100%');
   $('.jumbotron').css('background-position', 'center');
 
