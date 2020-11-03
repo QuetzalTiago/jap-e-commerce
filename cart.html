@@ -82,6 +82,7 @@
               <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="profile" href="./my-profile.html">Ver mi perfil</a>
               <a class="dropdown-item bg-dark text-secondary font-weight-bold active" id="cart" href="cart.html">Carrito</a>
               <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="logout" href="#">Cerrar sesión</a>
+              <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="dark-mode" href="#">Activar modo oscuro (beta)</a>
             </div>
           </div>
         </li>
@@ -116,18 +117,20 @@
         </div>
       <div class="container p-4">
         <div class="container row p-3 mb-2 text-center">
-          <h5>Tipo de envío:</h5>
-          <div class="col" id="standart">
+          <div class="col-md-3">
+            <h5>Tipo de envío:</h5>
+          </div>
+          <div class="col-md-3" id="standart">
               <input type="radio" name="shipping" id="shipping-standart" class="p-3 mb-2 shipping" checked="checked"> 
               Estándar
             <p class="text-muted small">30 días (5%)</p>
           </div>
-          <div class="col" id="express">
+          <div class="col-md-3" id="express">
               <input type="radio" name="shipping" id="shipping-express" class="p-3 mb-2 shipping">
               Express
             <p class="text-muted small">15 días (10%)</p>
           </div>
-          <div class="col" id="premium">
+          <div class="col-md-3" id="premium">
               <input type="radio" name="shipping" id="shipping-premium" class="p-3 mb-2 shipping">
               Premium
             <p class="text-muted small">7 días (15%)</p>
@@ -219,7 +222,7 @@
                 </div>
                 <div class="modal-body">
                   <p>Número de cuenta:</p>
-                  <h2 class="text-bold price">ES132312290350000083</h2>
+                  <h2 class="text-bold price">UY132312290350000</h2>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -64,6 +64,7 @@
                 <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="profile" href="./my-profile.html">Mi perfil</a>
                 <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="cart" href="cart.html">Ver mi carrito</a>
                 <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="logout" href="#">Cerrar sesión</a>
+                <a class="dropdown-item bg-dark text-secondary font-weight-bold" id="dark-mode" href="#">Activar modo oscuro (beta)</a>
               </div>
           </div>
         </li>
@@ -81,13 +82,13 @@
           <div class="col text-right">
               <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                   <label class="btn btn-light active" id="sortByCount" >
-                  <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1" data-toggle="tooltip" title="Más relevante"></i>
+                  <input min="1" type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1" data-toggle="tooltip" title="Más relevante"></i>
                   </label>
                   <label class="btn btn-light" id="sortAsc" >
-                    <input type="radio" name="options" autocomplete="off"><i class="fas fa-arrow-up" data-toggle="tooltip" title="Mayor precio"></i>
+                    <input min="1" type="radio" name="options" autocomplete="off"><i class="fas fa-arrow-up" data-toggle="tooltip" title="Mayor precio"></i>
                   </label>
                   <label class="btn btn-light" id="sortDesc" >
-                    <input type="radio" name="options" autocomplete="off"><i class="fas fa-arrow-down" data-toggle="tooltip" title="Menor precio"></i>
+                    <input min="1" type="radio" name="options" autocomplete="off"><i class="fas fa-arrow-down" data-toggle="tooltip" title="Menor precio"></i>
                   </label>
               </div>
           </div>
@@ -103,10 +104,10 @@
                 <p class="font-weight-normal text-right my-2">Precio</p>
               </div>
               <div class="col">
-                <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                <input min="1" class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
               </div>
               <div class="col">
-                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                <input min="1" class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
               </div>
               <div class="col p-0">
                 <div class="btn-group" role="group">

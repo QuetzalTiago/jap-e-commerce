@@ -5,6 +5,7 @@ let currentCategoriesArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+let dark = localStorage.getItem('dark');
 
 const sortCategories = (criteria, array) => {
     let result = [];
@@ -61,6 +62,9 @@ const showCategoriesList = (array) => {
         }
 
         $("#cat-list-container").html(htmlContentToAppend);
+        if(dark){
+            darkMode();
+        }
     }
 }
 

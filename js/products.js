@@ -8,6 +8,7 @@ let resultsFound;
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+let dark = localStorage.getItem('dark');
 
 
 const sortProducts = (criteria, array) => {
@@ -64,6 +65,9 @@ const showProductList = (array) =>  {
             </a>
             `
             $("#cat-list-container").html(htmlContentToAppend);
+            if(dark){
+                darkMode();
+            }
         }
     }
 }

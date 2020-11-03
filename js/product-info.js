@@ -1,3 +1,5 @@
+let dark = localStorage.getItem('dark');
+
 const showProduct = () => {
   let product = productArray;
   let htmlContentToAppend = 
@@ -69,6 +71,9 @@ const showProduct = () => {
   `
   }
   document.getElementById("product-container").innerHTML = htmlContentToAppend;
+  if(dark){
+    darkMode();
+  }
 }
 
 const showComments = (array) => {
